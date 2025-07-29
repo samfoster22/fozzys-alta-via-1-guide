@@ -1,0 +1,213 @@
+/* Basic Resets & Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header Styles */
+header {
+    background: #2c3e50; /* Dark blue/grey */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Arrange nav items horizontally */
+    justify-content: center; /* Center them */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #34495e; /* Slightly lighter dark blue/grey */
+}
+
+/* Main Content Section Styles */
+section {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    border-bottom: 2px solid #3498db; /* Blue underline */
+    padding-bottom: 10px;
+    display: inline-block; /* Make underline only as wide as text */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Specific Section Styles (e.g., for stages) */
+#stages-content {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+}
+
+.stage-card {
+    background-color: #ecf0f1; /* Light grey */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.stage-card:hover {
+    transform: translateY(-5px);
+}
+
+.stage-card h3 {
+    color: #3498db; /* Blue */
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.stage-card p {
+    font-size: 0.95rem;
+}
+
+/* Map specific styling */
+#mapid {
+    height: 500px; /* Defined in HTML, but good to have here too for consistency */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Styling for the new Itinerary Cards */
+#itinerary-details {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+}
+
+.itinerary-card {
+    background-color: #ecf0f1; /* Light grey, similar to stage-card */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+    border-left: 5px solid #3498db; /* Blue accent bar */
+}
+
+.itinerary-card:hover {
+    transform: translateY(-5px);
+}
+
+.itinerary-card h3 {
+    color: #2c3e50; /* Darker heading for clarity */
+    margin-top: 0;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.itinerary-card p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.itinerary-card p strong {
+    color: #3498db; /* Blue for emphasis */
+}
+
+
+/* Preparation list styling */
+#preparation ul {
+    list-style: none;
+    padding: 0;
+}
+
+#preparation ul li {
+    background-color: #ecf0f1;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-left: 5px solid #3498db;
+    border-radius: 4px;
+}
+
+#preparation ul li strong {
+    color: #2c3e50;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #2c3e50;
+    color: #fff;
+    margin-top: 30px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+    }
+
+    #stages-content, #itinerary-details { /* Added itinerary-details here */
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+}

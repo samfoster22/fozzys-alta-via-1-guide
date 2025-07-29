@@ -114,7 +114,7 @@ section h2 {
     border: 1px solid #ddd;
 }
 
-/* Styling for the new Itinerary Cards */
+/* Styling for the Itinerary Cards */
 #itinerary-details {
     display: grid;
     gap: 20px;
@@ -150,6 +150,41 @@ section h2 {
     color: #3498db; /* Blue for emphasis */
 }
 
+/* Styling for the new Distance Cards (Key Points & Distances Section) */
+#distance-list {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+}
+
+.distance-card {
+    background-color: #ecf0f1; /* Light grey */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+    border-left: 4px solid #3498db; /* Blue accent */
+}
+
+.distance-card:hover {
+    transform: translateY(-3px);
+}
+
+.distance-card h3 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.distance-card p {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.distance-card p strong {
+    color: #3498db;
+}
 
 /* Preparation list styling */
 #preparation ul {
@@ -201,7 +236,7 @@ footer {
         font-size: 1.8rem;
     }
 
-    #stages-content, #itinerary-details { /* Added itinerary-details here */
+    #stages-content, #itinerary-details, #distance-list { /* Added distance-list here */
         grid-template-columns: 1fr; /* Single column on small screens */
     }
 }

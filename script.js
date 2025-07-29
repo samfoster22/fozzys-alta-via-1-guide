@@ -122,7 +122,7 @@ const wildCampingStages = [
     }
 ];
 
-// --- 3. Dynamically Load Stages into the HTML (Overview Cards) ---
+// --- 3. Dynamically Load Stages into the HTML (Overview Cards and Map Markers) ---
 const stagesContentDiv = document.getElementById('stages-content');
 stagesContentDiv.innerHTML = ''; // Clear the "Loading..." message
 
@@ -145,9 +145,9 @@ wildCampingStages.forEach(stage => {
     L.marker(stage.start).addTo(map)
         .bindPopup(startPopupContent);
 
-    // Prepare popup content for the end marker (using the same image for simplicity, or add a specific 'endPopupImage' if needed)
+    // Prepare popup content for the end marker (using the same image for simplicity, or add a specific 'endPopupImage' if different image is needed)
     let endPopupContent = `<b>${stage.name}</b><br>End of Day`;
-    if (stage.popupImage) { // Re-using stage.popupImage for end marker, you can extend data if different image is needed
+    if (stage.popupImage) {
         endPopupContent += `<br><img src="${stage.popupImage}" alt="${stage.name} End" style="max-width: 150px; height: auto; margin-top: 5px;">`;
     }
     L.marker(stage.end).addTo(map)
@@ -174,4 +174,32 @@ wildCampingStages.forEach((stage, index) => {
         <p><em>Ending Coordinates:</em> ${stage.end[0].toFixed(4)}, ${stage.end[1].toFixed(4)}</p>
     `;
     itineraryDetailsDiv.appendChild(dayCard);
+});
+
+// --- NEW: Data for Key Route Points & Distances List ---
+const keyRouteDistances = [
+    { from: "Lago di Braies (Start)", to: "Rifugio Biella", distance: "Approx. 5 km", time: "2-3 hours" },
+    { from: "Rifugio Biella", to: "Rifugio Sennes area", distance: "Approx. 10 km", time: "4-5 hours" },
+    { from: "Rifugio Sennes area", to: "Rifugio Fanes / Lavarella area", distance: "Approx. 8 km", time: "3-4 hours" },
+    { from: "Rifugio Fanes / Lavarella area", to: "Rifugio Lagazuoi area", distance: "Approx. 12 km", time: "5-6 hours" },
+    { from: "Rifugio Lagazuoi area", to: "Passo Giau / Cinque Torri area", distance: "Approx. 13 km", time: "4-5 hours" },
+    { from: "Passo Giau / Cinque Torri area", to: "Rifugio Coldai / Civetta Base", distance: "Approx. 11 km", time: "4-5 hours" },
+    { from: "Rifugio Coldai / Civetta Base", to: "Passo Duran area", distance: "Approx. 10 km", time: "3-4 hours" },
+    { from: "Passo Duran area", to: "Bivacco Pian de Fontana", distance: "Approx. 12 km", time: "4-5 hours" },
+    { from: "Bivacco Pian de Fontana", to: "Belluno (End)", distance: "Approx. 23 km", time: "6-7 hours" }
+];
+
+// --- NEW: Dynamically Load Key Route Points & Distances List ---
+const distanceListDiv = document.getElementById('distance-list');
+distanceListDiv.innerHTML = ''; // Clear the "Loading..." message
+
+keyRouteDistances.forEach(point => {
+    const listItem = document.createElement('div');
+    listItem.classList.add('distance-card'); // Using a new class for styling
+    listItem.innerHTML = `
+        <h3>From ${point.from} to ${point.to}</h3>
+        <p><strong>Distance:</strong> ${point.distance}</p>
+        <p><strong>Estimated Time:</strong> ${point.time}</p>
+    `;
+    distanceListDiv.appendChild(listItem);
 });
